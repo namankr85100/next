@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTheme } from './context/ThemeContext';
 const PopUp = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   return (
    <div>
       {/* Trigger Button */}
@@ -29,7 +29,10 @@ const PopUp = () => {
               <p>Theme: {theme}</p>
               <button
               className='w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition'
-              onClick={()=> setTheme(theme=='light'?'dark':'light')}
+              onClick={()=> 
+                toggleTheme()
+                // setTheme(theme=='light'?'dark':'light')
+              }
               >Change Theme </button>
               Close
           </div>
